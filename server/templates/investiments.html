@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FII Investiments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{
+      url_for('static', filename='css/index.css')
+    }}" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col">
+            <h1 class="display-4">Relatório Financeiro <b>{{ fii.name }}</b></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="info-box">
+              <span class="info-label">Total Investido:</span>
+              <span class="info-value">R$ {{ fii.amount|round(2) }}</span>
+            </div>
+            <div class="info-box">
+              <span class="info-label">Lucro Obtido:</span>
+              <span class="info-value">R$ {{ fii.profit|round(2) }}</span>
+            </div>
+            <div class="info-box">
+              <span class="info-label">Total de Dinheiro Próprio Investido:</span>
+              <span class="info-value">R$ {{ fii.real_value_investiment|round(2) }}</span>
+            </div>
+            <div class="info-box">
+              <span class="info-label">Rendimento Mensal dos Investimentos:</span>
+              <span class="info-value">R$ {{ fii.monthly_earning|round(2) }}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-box">
+              <span class="info-label">Total de ações compradas:</span>
+              <span class="info-value"> {{ fii.total_shares }} </span>
+            </div>
+            <div class="info-box">
+              <span class="info-label">Tempo de investimento em meses:</span>
+              <span class="info-value"> {{ fii.time_investiments_in_months }} </span>
+            </div>
+            <div class="info-box">
+              <span class="info-label">Tempo de investimento em anos:</span>
+              <span class="info-value">
+                {{ fii.time_investiments_in_years[0] }} anos e {{ fii.time_investiments_in_years[1] }} meses
+              </span>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary btn-lg btn-block">
+            <a href="/">
+            Retornar a página inicial
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
