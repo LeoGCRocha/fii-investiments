@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FII Investiments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{
+      url_for('static', filename='css/index.css')
+    }}" />
+  </head>
+  <body>
+    <div id="content">
+      <div class="container-fluid">
+        <form 
+          onsubmit="return validateForm()"
+          method="POST"
+          action="/calculate">
+          <img 
+            src="{{
+              url_for('static', filename='resource/real-state.jpg')
+            }}" 
+            alt="Fii Investiments" />
+          <div class="input-group mb-3">
+            <button id="objetivo-button"
+              class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Objetivo
+            </button>
+            
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" onclick="changeButton(this)">Por montante total</a>
+              </li>
+              <li>
+                <a class="dropdown-item" onclick="changeButton(this)">Por lucro obtido</a>
+              </li>
+              <li>
+                <a class="dropdown-item" onclick="changeButton(this)">Por rendimento mensal</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" onclick="changeButton(this)">
+              </li>
+              <li>
+                <a class="dropdown-item" onclick="changeButton(this)">Ao atingir magic number</a>
+              </li>
+            </ul>
+            <input id="objetivo-input" name="objetivo-input"
+              type="text" class="form-control" aria-label="Text input with dropdown button">
+          </div>
+
+          <input type="text" 
+            id="objetivo-input-choice" name="objetivo-input-choice" style="display: none;" />
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              Montante Inicial
+            </span>
+            <input type="text" id="montante-inicial-input" name="montante-inicial-input"
+              class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              Aporte mensal
+            </span>
+            <input type="text" id="aporte-mensal-input" name="aporte-mensal-input"
+              class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+            <input id="cota-input" name="cota-input"
+              type="text" class="form-control" placeholder="Sigla da cota (ex.: MXRF11)"
+              aria-label="Recipient's username" name="sigla-cota">
+            <button class="btn btn-outline-secondary" type="submit">
+              CALCULAR
+            </button>
+          </div>
+        </form>
+      </div>
+
+    <script src="{{
+      url_for('static', filename='js/script.js')
+    }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
